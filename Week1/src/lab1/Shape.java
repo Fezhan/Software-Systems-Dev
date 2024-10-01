@@ -2,7 +2,7 @@ package lab1;
 
 abstract class Shape {
 	
-	private int sides;
+	protected int sides;
 	
 	public int getSides() {
 		return sides;
@@ -18,22 +18,23 @@ abstract class Shape {
 
 class Rectangle extends Shape {
 	
-	private int side1;
-	private int side2;
+	protected int length;
+	protected int width;
 	
-	public Rectangle (int side1, int side2) {
-		this.side1 = side1;
-		this.side2 = side2;
+	public Rectangle (int length, int width) {
+		this.length = length;
+		this.width = width;
+		this.sides = 4;
 	}
 	
-	public void optionSetter (int option, int value) {
+	public void optionSetter (String option, int value) {
 		
-		switch (option) {
-			case 1:
-				this.side1 = value;
+		switch (option.toLowerCase()) {
+			case "length":
+				this.length = value;
 				break;
-			case 2:
-				this.side2 = value;
+			case "width":
+				this.width = value;
 				break;
 			default:
 				System.out.println("Invalid option entered");
@@ -43,10 +44,12 @@ class Rectangle extends Shape {
 	
 	public String optionGetter(String option) {
 		switch (option.toLowerCase()) {
-			case "side1":
-				return "Side 1 is " + this.side1;
-			case "side2":
-				return "Side 2 is " + this.side2;
+			case "length":
+				return "length is " + this.length;
+			case "width":
+				return "width is " + this.width;
+			case "sides":
+				return "rectangle has " + this.sides + "sides";
 			default:
 				return "Invalid option";
 		}
@@ -55,10 +58,85 @@ class Rectangle extends Shape {
 	
 	@Override
 	public int getArea() {
-		int area = this.side1 * this.side2;
+		int area = this.length * this.width;
 		return area;
 	}
 	
 }
+
+
+class Circle extends Shape {
+	private int radius;
+	
+	public Circle (int radius) {
+		this.radius = radius;	
+		this.sides = 1;
+	}
+	
+public void optionSetter (String option, int value) {
+		
+		switch (option.toLowerCase()) {
+			case "radius":
+				this.radius = value;
+				break;
+			default:
+				System.out.println("Invalid option entered");
+				break;
+		}
+	}
+	
+	public String optionGetter(String option) {
+		switch (option.toLowerCase()) {
+			case "radius":
+				return "length is " + this.radius;
+			case "sides":
+				return "width is " + this.sides;
+			default:
+				return "Invalid option";
+		}
+	}
+
+	@Override
+	public int getArea() {
+		int area = this.radius * this.radius * 3;
+		return area;
+		/** This method returns an integer and not a double, so we cannot use pi as 3.14 or return a decimal.*/
+	}
+}
+
+
+class Ellipse extends Rectangle {
+
+	private int length;
+	private int width;
+
+
+	public Ellipse(int length, int width) {
+
+		super(length, width);
+
+		this.length = length;
+		this.width = width;
+		this.sides = 1;
+	}
+
+	@Override
+	public String optionGetter(String option) {
+		switch (option.toLowerCase()) {
+			case "sides":
+				return "ellipse has " + this.sides + " sides";
+			default:
+				super.optionGetter(option);
+				return "0";
+		}
+	}
+
+	public int getArea() {
+		int area = this.length * this.width * 3;
+		return area;
+		/** This method returns an integer and not a double, so we cannot use pi as 3.14 or return a decimal.**/
+	}
+
+	}
 
 
