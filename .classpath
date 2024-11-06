@@ -4,5 +4,6 @@
 	<classpathentry kind="src" path="Week1/src"/>
 	<classpathentry excluding="lab2/" kind="src" path="Week2/src"/>
 	<classpathentry kind="src" path="Week2/src/lab2"/>
+	<classpathentry kind="src" path="Week4"/>
 	<classpathentry kind="output" path="Week1/bin"/>
 </classpath>

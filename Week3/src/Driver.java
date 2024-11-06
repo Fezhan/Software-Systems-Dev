@@ -2,7 +2,9 @@ import java.util.Random;
 
 
 public class Driver {
-	public static void main(String[] args) {final int VALUES = 10;
+	public static void main(String[] args) {
+		
+		final int VALUES = 10;
 
 		Stats stats = new Stats(VALUES);
 
@@ -18,7 +20,7 @@ public class Driver {
 		System.out.println("Average = " + stats.getAverage());
 		System.out.println("Count = " + stats.getCount());
 		System.out.println("Total = " + stats.getTotal());
-		System.out.println("Minimum value = " + stats.getB());
-		System.out.println("Maximum value = " + stats.getA());
+		System.out.println("Minimum value = " + stats.getMin());
+		System.out.println("Maximum value = " + stats.getMax());
 	}
 }

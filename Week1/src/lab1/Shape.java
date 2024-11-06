@@ -116,7 +116,7 @@ class Ellipse extends Rectangle {
 		super(length, width);
 
 		this.length = length;
-		this.width = width;
+		this.width = width/2;
 		this.sides = 1;
 	}
 
